@@ -5,8 +5,6 @@ from django.middleware.csrf import get_token
 
 # Create your views here.
 def vision(req):
-    csrf_token = get_token(req)
-    print(csrf_token)
     return HttpResponse("hello")
 
 class TestView(View):
@@ -14,4 +12,6 @@ class TestView(View):
         print(request.POST.get('person', 'No person'))
         return HttpResponse("100")
     def get(self, request, *args, **kwargs):
+        csrf_token = get_token(request)
+        print(csrf_token)
         return HttpResponse("100")
