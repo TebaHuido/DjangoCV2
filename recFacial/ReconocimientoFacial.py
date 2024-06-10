@@ -21,7 +21,6 @@ if not cap.isOpened():
 
 # Inicializando el clasificador de rostros
 faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-
 url = 'http://localhost:8000/test'
 client = requests.session()
 
@@ -73,7 +72,7 @@ while True:
             else:
                 print("No se puede enviar datos porque el token CSRF no está disponible.")
             print(persons[result[0]])
-    cv2.imshow('frame',frame)
+    #cv2.imshow('frame',frame)
     k = cv2.waitKey(1)
     if k == 27:
         break
